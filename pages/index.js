@@ -52,7 +52,8 @@ export default function Home() {
     <div>
       <Head>
         <title>Beat writers block!</title>
-        
+        <link rel="icon" href="plunger.png"/>
+
       </Head>
 
       <main className={styles.main}>

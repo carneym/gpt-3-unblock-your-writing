@@ -8,7 +8,7 @@
 3. Navigate into the project directory
 
    ```bash
-   $ cd GPT-3-TAX-TEST
+   $ cd unblock-your-writing
    ```
 
 4. Install the requirements

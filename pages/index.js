@@ -20,27 +20,28 @@ export default function Home() {
     "It was love at first sight."
   ]
 
+  // Returns 1 of 10 of the most famous books opening lines for inspiration
   function getQuote(){
     const index = Math.floor(Math.random()*10);
     return famousQuotes[index];
   }
-
-
-
+  
+  // If there is no blockedText then send an alert and do not run ai model
   async function onSubmit(event) {
     event.preventDefault();
     if(blockedText === ""){
       alert("You need to provide some sample text and the start of where you are stuck.")
       return;
     }
-
+    setPrevBlockedText("");
+    setResult("Thinking...");
 
     const response = await fetch("/api/generate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ prompt: blockedText, sample: exampleText }),
+      body: JSON.stringify({ prompt: blockedText, sample: exampleText, temperature: 0.6 }),
     });
     const data = await response.json();
     setResult(data.result);
